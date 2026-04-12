@@ -9,6 +9,7 @@ import {
   CalendarClock,
   AlertCircle,
   Info,
+  Sparkles,
 } from 'lucide-react';
 import type { Program, Tier } from '../types';
 
@@ -53,38 +54,45 @@ export function ProgramCard({ program, tier }: Props) {
   return (
     <div
       className={`
-        group relative rounded-2xl bg-white border-2 ${tier.accent.border}
-        card-shadow hover:card-shadow-lg transition-all duration-300
-        ${program.highlight ? 'ring-2 ' + tier.accent.ring : ''}
+        group relative rounded-2xl border-2 transition-all duration-300
+        ${
+          program.highlight
+            ? 'border-rose-300 bg-gradient-to-br from-white via-rose-50/50 to-pink-50/40 shadow-lg shadow-rose-200/50 hover:shadow-xl hover:shadow-rose-200/60'
+            : `bg-white ${tier.accent.border} card-shadow hover:card-shadow-lg`
+        }
       `}
     >
-      {program.highlight && (
-        <div className="absolute -top-2.5 right-5 z-10">
-          <div
-            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full ${tier.accent.badge} text-[10px] font-bold shadow-sm`}
-          >
-            מומלץ ביותר
-          </div>
-        </div>
-      )}
-
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full text-right p-4 sm:p-5"
       >
         <div className="flex items-start gap-3 sm:gap-4">
-          <div
-            className={`
-              flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl
-              ${tier.accent.badge}
-              flex items-center justify-center
-              text-lg sm:text-xl font-extrabold shadow-sm
-            `}
-          >
-            {program.rank}
+          <div className="relative flex-shrink-0">
+            <div
+              className={`
+                w-10 h-10 sm:w-12 sm:h-12 rounded-xl
+                ${tier.accent.badge}
+                flex items-center justify-center
+                text-lg sm:text-xl font-extrabold shadow-sm
+                ${program.highlight ? 'ring-2 ring-rose-200 ring-offset-2 ring-offset-rose-50/50' : ''}
+              `}
+            >
+              {program.rank}
+            </div>
+            {program.highlight && (
+              <div className="absolute -top-1.5 -left-1.5 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shadow-sm">
+                <Sparkles size={12} className="text-white" fill="currentColor" />
+              </div>
+            )}
           </div>
 
           <div className="flex-1 min-w-0">
+            {program.highlight && (
+              <div className="inline-flex items-center gap-1 mb-1.5 text-[10px] font-bold text-rose-600 uppercase tracking-wider">
+                <Sparkles size={10} fill="currentColor" />
+                <span>מומלץ ביותר</span>
+              </div>
+            )}
             <h3 className="font-bold text-slate-900 text-base sm:text-lg leading-tight mb-1">
               {program.title}
             </h3>
@@ -130,36 +138,38 @@ export function ProgramCard({ program, tier }: Props) {
 
       <div
         className={`
-          overflow-hidden transition-all duration-300 ease-out
-          ${expanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+          grid transition-all duration-300 ease-out
+          ${expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}
         `}
       >
-        <div className="px-4 sm:px-5 pb-5 pr-16 sm:pr-20 space-y-3">
-          <p className="text-sm text-slate-600 leading-relaxed">
-            {program.description}
-          </p>
+        <div className="overflow-hidden">
+          <div className="mx-4 sm:mx-5 pt-4 pb-5 space-y-3 border-t border-slate-100">
+            <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+              {program.description}
+            </p>
 
-          {program.prerequisites && (
-            <div className="text-xs bg-slate-50 rounded-xl p-3 border border-slate-100">
-              <span className="font-bold text-slate-700">תנאי מוקדם: </span>
-              <span className="text-slate-600">{program.prerequisites}</span>
-            </div>
-          )}
+            {program.prerequisites && (
+              <div className="text-xs bg-slate-50 rounded-xl p-3 border border-slate-100">
+                <span className="font-bold text-slate-700">תנאי מוקדם: </span>
+                <span className="text-slate-600">{program.prerequisites}</span>
+              </div>
+            )}
 
-          <a
-            href={program.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`
-              inline-flex items-center gap-1.5 px-4 py-2 rounded-full
-              bg-gradient-to-r ${tier.accent.gradient} text-white
-              text-sm font-semibold shadow-sm
-              hover:shadow-md hover:scale-[1.02] transition-all
-            `}
-          >
-            לדף התוכנית
-            <ExternalLink size={14} />
-          </a>
+            <a
+              href={program.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`
+                inline-flex items-center gap-1.5 px-4 py-2 rounded-full
+                bg-gradient-to-r ${tier.accent.gradient} text-white
+                text-sm font-semibold shadow-sm
+                hover:shadow-md hover:scale-[1.02] transition-all
+              `}
+            >
+              לדף התוכנית
+              <ExternalLink size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </div>
