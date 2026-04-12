@@ -26,10 +26,10 @@ export function Hero() {
       <div className="relative max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-12 sm:pt-24 sm:pb-20">
         <div className="text-center animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-rose-200/60 mb-6 shadow-sm">
-            <Heart size={14} className="text-rose-500 animate-heart-pulse" fill="currentColor" />
             <span className="text-xs sm:text-sm text-rose-900 font-medium">
               לשקד, עם הרבה אהבה
             </span>
+            <Heart size={14} className="text-rose-500 animate-heart-pulse" fill="currentColor" />
           </div>
 
           <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight mb-5 text-balance">

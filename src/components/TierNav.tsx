@@ -29,36 +29,47 @@ export function TierNav({ tiers }: Props) {
     return () => observer.disconnect();
   }, [tiers]);
 
+  const activeTierData = tiers.find((t) => t.id === activeTier);
+
   return (
     <nav className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-rose-100/60">
-      <div className="max-w-5xl mx-auto px-3 sm:px-8 py-3">
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide">
+      <div className="max-w-5xl mx-auto px-3 sm:px-8 py-2.5 sm:py-3">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2">
           {tiers.map((tier) => {
             const isActive = activeTier === tier.id;
             return (
               <a
                 key={tier.id}
                 href={`#tier-${tier.id.toLowerCase()}`}
+                aria-label={`Tier ${tier.id}`}
                 className={`
-                  flex-shrink-0 inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full
-                  text-xs sm:text-sm font-bold transition-all duration-300
+                  flex-shrink-0 inline-flex items-center justify-center
+                  w-10 h-10 sm:w-12 sm:h-12
+                  rounded-xl font-extrabold text-base sm:text-lg
+                  transition-all duration-300
                   ${
                     isActive
-                      ? `bg-gradient-to-r ${tier.accent.gradient} text-white shadow-md scale-105`
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      ? `bg-gradient-to-br ${tier.accent.gradient} text-white shadow-lg scale-110 ring-4 ring-white`
+                      : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:scale-105'
                   }
                 `}
               >
-                <span>{tier.title}</span>
-                {isActive && (
-                  <span className="hidden sm:inline text-[10px] font-medium opacity-90">
-                    {tier.tagline}
-                  </span>
-                )}
+                {tier.id}
               </a>
             );
           })}
         </div>
+
+        {activeTierData && (
+          <div
+            key={activeTierData.id}
+            className="text-center mt-2 text-[11px] sm:text-xs font-semibold text-slate-600 animate-fade-in"
+          >
+            <span className={activeTierData.accent.text}>TIER {activeTierData.id}</span>
+            <span className="text-slate-400 mx-1.5">•</span>
+            <span>{activeTierData.tagline}</span>
+          </div>
+        )}
       </div>
     </nav>
   );
