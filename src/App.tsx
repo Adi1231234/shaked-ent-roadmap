@@ -14,7 +14,20 @@ function App() {
       <TierNav tiers={tiers} />
       <main>
         {tiers.map((tier) => (
-          <TierSection key={tier.id} tier={tier} />
+          <div key={tier.id}>
+            {tier.sectionStart && (
+              <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14">
+                <div className="flex items-center gap-4">
+                  <div className="h-px flex-1 bg-gradient-to-l from-slate-300 to-transparent" />
+                  <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-700">
+                    {tier.sectionStart}
+                  </h2>
+                  <div className="h-px flex-1 bg-gradient-to-r from-slate-300 to-transparent" />
+                </div>
+              </div>
+            )}
+            <TierSection tier={tier} />
+          </div>
         ))}
       </main>
       <Footer />

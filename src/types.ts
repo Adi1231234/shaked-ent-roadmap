@@ -1,4 +1,4 @@
-export type TierId = 'S' | 'A' | 'B' | 'C' | 'D' | 'E';
+export type TierId = string;
 
 export type Relevance = 'ישירה מאוד' | 'ישירה' | 'ייחודית' | 'עקיפה' | 'כללית';
 
@@ -30,6 +30,7 @@ export interface Tier {
   title: string;
   tagline: string;
   description: string;
+  sectionStart?: string;
   accent: {
     gradient: string;
     badge: string;
