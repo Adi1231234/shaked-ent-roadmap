@@ -5,6 +5,7 @@ export const tiers: Tier[] = [
     id: 'NEW_NEW',
     title: 'חם מהתנור',
     tagline: 'הזדמנויות אא״ג ספציפיות עם הרשמה פתוחה כעת',
+    dateAdded: '2026-05-12',
     description:
       'שלוש הזדמנויות מחקר ישראליות יוקרתיות עם זווית ישירה לאא״ג: שתי מחלקות אא״ג מובילות (איכילוב, הדסה) ומעבדת הגנטיקה של חירשות המובילה בעולם. כולן עם הרשמה פתוחה כעת - לא תוכניות עונתיות אלא פניה ישירה רולינג.',
     sectionStart: 'חם',
@@ -145,6 +146,7 @@ export const tiers: Tier[] = [
     description:
       'תוכניות בעלות לוז ברור, ייעוד מובהק לסטודנטיות.ים, ועם דדליין קרוב או שיש להן ערך מובהק נוסף לחיזוק הרזומה. כדאי לבדוק אותן לפני שעוברים למפת הדרכים הוותיקה למטה.',
     sectionStart: 'חדש',
+    dateAdded: '2026-05-07',
     accent: {
       gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
       badge: 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white',
@@ -369,6 +371,7 @@ export const tiers: Tier[] = [
     description:
       'פעולות שנותנות שם יוקרתי עם השקעה נמוכה-בינונית או ערך ייחודי ישיר לאא״ג. אלה ארבעת המהלכים החשובים ביותר - כדאי להתחיל בהם תוך שבוע.',
     sectionStart: 'ישן',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-rose-500 via-pink-500 to-fuchsia-500',
       badge: 'bg-gradient-to-br from-rose-500 to-pink-600 text-white',
@@ -445,6 +448,7 @@ export const tiers: Tier[] = [
     title: 'TIER A',
     tagline: 'השקעה בינונית, תשואה מצוינת',
     description: 'פעולות שדורשות יותר זמן אבל מקבלות בתמורה בסיס משמעותי ברזומה שלך.',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-pink-500 via-purple-500 to-indigo-500',
       badge: 'bg-gradient-to-br from-pink-500 to-purple-500 text-white',
@@ -531,6 +535,7 @@ export const tiers: Tier[] = [
     title: 'TIER B',
     tagline: 'יוקרה טובה, יותר מאמץ',
     description: 'פעולות עם ערך טוב, אבל פחות ייחודיות או דורשות יותר מאמץ.',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-indigo-500 via-blue-500 to-cyan-500',
       badge: 'bg-gradient-to-br from-indigo-500 to-blue-500 text-white',
@@ -613,6 +618,7 @@ export const tiers: Tier[] = [
     title: 'TIER C',
     tagline: 'השקעה גדולה או ייחודיות נמוכה',
     description: 'פעולות שיש להן ערך אבל לא בראש סדרי העדיפויות.',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-slate-500 via-slate-600 to-slate-700',
       badge: 'bg-gradient-to-br from-slate-500 to-slate-600 text-white',
@@ -682,6 +688,7 @@ export const tiers: Tier[] = [
     tagline: 'יעד אסטרטגי לאחר התואר הראשון',
     description:
       'תוכניות יוקרתיות מאוד אבל רק אחרי סיום התואר. מטרת-על - כדאי לבנות פרופיל כבר עכשיו כדי להיות מועמדת חזקה.',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-amber-500 via-orange-500 to-red-500',
       badge: 'bg-gradient-to-br from-amber-500 to-orange-500 text-white',

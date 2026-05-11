@@ -31,6 +31,7 @@ export interface Tier {
   tagline: string;
   description: string;
   sectionStart?: string;
+  dateAdded?: string;
   accent: {
     gradient: string;
     badge: string;
