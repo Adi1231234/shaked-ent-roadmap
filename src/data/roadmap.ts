@@ -788,6 +788,7 @@ export const tiers: Tier[] = [
     title: 'TIER E',
     tagline: 'השקעה לא כדאית בשלב הנוכחי',
     description: 'פעולות שניתן לדלג עליהן או לעשות בעדיפות הנמוכה ביותר.',
+    dateAdded: '2026-04-12',
     accent: {
       gradient: 'from-gray-400 via-gray-500 to-gray-600',
       badge: 'bg-gradient-to-br from-gray-400 to-gray-500 text-white',

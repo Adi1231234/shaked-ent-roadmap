@@ -5,7 +5,23 @@ interface Props {
   tier: Tier;
 }
 
+function formatShortDate(iso: string): string {
+  const [, m, d] = iso.split('-');
+  return `${parseInt(d, 10)}.${parseInt(m, 10)}`;
+}
+
+function formatFullDate(iso: string): string {
+  const [y, m, d] = iso.split('-');
+  return `${parseInt(d, 10)}.${parseInt(m, 10)}.${y.slice(2)}`;
+}
+
 export function TierSection({ tier }: Props) {
+  const isDateTier = tier.id === 'NEW' || tier.id === 'NEW_NEW';
+  const badgeText = isDateTier && tier.dateAdded ? formatShortDate(tier.dateAdded) : tier.id;
+  const overlineText = isDateTier && tier.dateAdded
+    ? `נוסף ${formatFullDate(tier.dateAdded)}`
+    : `Tier ${tier.id}`;
+
   return (
     <section
       id={`tier-${tier.id.toLowerCase()}`}
@@ -17,14 +33,14 @@ export function TierSection({ tier }: Props) {
             className={`
               inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16
               rounded-2xl ${tier.accent.badge} shadow-lg
-              font-extrabold text-2xl sm:text-3xl
+              font-extrabold ${isDateTier ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'}
             `}
           >
-            {tier.id}
+            {badgeText}
           </div>
           <div>
             <div className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">
-              Tier {tier.id}
+              {overlineText}
             </div>
             <h2
               className={`text-xl sm:text-2xl font-extrabold bg-gradient-to-r ${tier.accent.gradient} bg-clip-text text-transparent`}

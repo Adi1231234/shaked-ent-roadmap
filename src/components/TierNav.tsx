@@ -106,7 +106,13 @@ export function TierNav({ tiers }: Props) {
                   {group.label}
                 </span>
                 <span className={`text-[9px] sm:text-[10px] mt-0.5 leading-none font-semibold ${isActive ? 'text-white/85' : 'text-slate-400'}`}>
-                  {isToday ? 'היום' : group.tiers.length === 1 ? group.tiers[0].id : `${group.tiers.length} טירים`}
+                  {(() => {
+                    if (isToday) return 'היום';
+                    if (group.tiers.length > 1) return `${group.tiers.length} טירים`;
+                    const tid = group.tiers[0].id;
+                    if (tid === 'NEW' || tid === 'NEW_NEW') return 'חדש';
+                    return `Tier ${tid}`;
+                  })()}
                 </span>
               </a>
             );
